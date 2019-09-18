@@ -6,7 +6,10 @@ public class Hero extends SmoothMover
     private double Vx = 0;
     private double Vy = 0;
     
-    private double gravity = 0.01;
+    private double speedYConst = -5;
+    private double speedXConst = 0.1;
+    
+    private double gravity = 0.1;
     
     public void act() 
     {
@@ -20,22 +23,22 @@ public class Hero extends SmoothMover
         }
         
         if(Greenfoot.isKeyDown("left")) {
-            Vx -= 0.1;
+            Vx -= speedXConst;
             setImage("left.png");
         }
         
         if(Greenfoot.isKeyDown("right")) {
-            Vx += 0.1;
+            Vx += speedXConst;
             setImage("right.png");
         }
         
         if(Greenfoot.isKeyDown("up")) {
-            Vy -= 0.1;
+            Vy = speedYConst;
             setImage("up.png");
         }
         
         if(Greenfoot.isKeyDown("down")) {
-            Vy += 0.1;
+            Vy += speedYConst;
             setImage("down.png");
         }
         
