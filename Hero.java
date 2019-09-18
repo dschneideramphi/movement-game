@@ -6,10 +6,19 @@ public class Hero extends SmoothMover
     private double Vx = 0;
     private double Vy = 0;
     
+    private double gravity = 0.01;
+    
     public void act() 
     {
         double x = getExactX();
         double y = getExactY();
+        
+        if(!isAtEdge()) {
+            Vy += gravity;
+        } else {
+            Vy = 0;
+        }
+        
         if(Greenfoot.isKeyDown("left")) {
             Vx -= 0.1;
             setImage("left.png");
@@ -29,6 +38,7 @@ public class Hero extends SmoothMover
             Vy += 0.1;
             setImage("down.png");
         }
+        
         
         x += Vx;
         y += Vy;
