@@ -39,5 +39,10 @@ public class Ball extends SmoothMover
         
         setLocation(x, y);
         
+        if(y < -5 || y > 505 || x < -5 || x > 505) {
+            //We're off the screen! Mayday mayday!!!!
+            getWorld().removeObject(this);
+        }
+        
     }    
 }
